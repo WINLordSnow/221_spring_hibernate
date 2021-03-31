@@ -8,9 +8,11 @@ import javax.persistence.*;
 public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
+
     private String model;
     private int series;
+
     @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -44,5 +46,14 @@ public class Car {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    @Override
+    public String toString() {
+        return model + " " + series;
     }
 }
