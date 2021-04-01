@@ -6,11 +6,12 @@ import javax.persistence.*;
 @Entity
 @Table(name = "cars")
 public class Car {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private long id;
 
     private String model;
+    @Id
     private int series;
 
     @OneToOne
@@ -48,9 +49,9 @@ public class Car {
         this.user = user;
     }
 
-    public long getId() {
-        return id;
-    }
+//    public long getId() {
+//        return id;
+//    }
 
     @Override
     public String toString() {
