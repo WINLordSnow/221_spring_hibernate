@@ -28,10 +28,17 @@ public class UserServiceImp implements UserService {
       return userDao.listUsers();
    }
 
+   @Transactional
    @Override
-   public Optional<User> getUser(int series) {
-      List<Car> list = userDao.getUser(series);
+   public Optional<User> getUserByCar(int series, String model) {
+      List<Car> list = userDao.getCar(series, model);
       return list.isEmpty() ? Optional.empty() : Optional.of(list.get(0).getUser());
+   }
+
+   @Transactional
+   @Override
+   public User getUser(long id) {
+      return userDao.getUser(id);
    }
 
 }

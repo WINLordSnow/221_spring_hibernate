@@ -31,14 +31,20 @@ public class UserDaoImp implements UserDao {
 
    @Override
    @SuppressWarnings("unchecked")
-   public List<Car> getUser(int series) {
-      String hql = "FROM Car WHERE series = :series";
+   public List<Car> getCar(int series, String model) {
+      String hql = "FROM Car WHERE series = :series and model = :model";
       Session session = sessionFactory.openSession();
       TypedQuery<Car> query = session.createQuery(hql);
       query.setParameter("series", series);
+      query.setParameter("model", model);
       List<Car> list = query.getResultList();
       session.close();
       return list;
+   }
+
+   @Override
+   public User getUser(long id) {
+      return sessionFactory.getCurrentSession().get(User.class, id);
    }
 
 }

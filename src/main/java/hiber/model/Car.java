@@ -20,7 +20,7 @@ public class Car {
 
     public Car() {}
 
-    public Car(String model, int series) {
+    public Car(int series, String model) {
         this.model = model;
         this.series = series;
     }

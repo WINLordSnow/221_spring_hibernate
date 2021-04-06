@@ -9,5 +9,6 @@ import java.util.Optional;
 public interface UserService {
     void add(User user);
     List<User> listUsers();
-    Optional<User> getUser(int series);
+    Optional<User> getUserByCar(int series, String model);
+    User getUser(long id);
 }

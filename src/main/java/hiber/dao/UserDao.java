@@ -9,5 +9,6 @@ import java.util.Optional;
 public interface UserDao {
    void add(User user);
    List<User> listUsers();
-   List<Car> getUser(int series);
+   List<Car> getCar(int series, String model);
+   User getUser(long id);
 }
